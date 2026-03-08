@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Film Grain Texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+  border-radius: 2px;
+}
+
+/* Neon Red Glow */
+.neon-red {
+  text-shadow: 0 0 10px #ff0000, 0 0 30px #ff0000, 0 0 60px #ff0000;
+}
+
+.neon-border {
+  box-shadow: 0 0 10px #ff000040, 0 0 30px #ff000020, inset 0 0 10px #ff000010;
+  border: 1px solid #ff000060;
+}
+
+.neon-border-hover:hover {
+  box-shadow: 0 0 15px #ff000080, 0 0 40px #ff000040, inset 0 0 15px #ff000020;
+  border-color: #ff0000;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-red {
+  background: rgba(255, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+/* Headline Font */
+.font-clash {
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Pulse Animation */
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); }
+}
+
+.pulse-red {
+  animation: pulse-red 2s infinite;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
+/* Ticker */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-animate {
+  animation: ticker 30s linear infinite;
+}
+
+/* Scan Line */
+@keyframes scanline {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+/* Loading bar */
+@keyframes loadbar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.load-bar {
+  animation: loadbar 2s ease-in-out forwards;
+}
+
+/* Red gradient background glow */
+.bg-radial-red {
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,0,0,0.12) 0%, transparent 60%);
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Horizontal Scroll */
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ff0000 #111;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
+/* Canvas area */
+.canvas-area {
+  background: 
+    linear-gradient(rgba(255,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,0,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-color: #0a0a0a;
+}
+
+/* Hotness dots */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.blink-dot {
+  animation: blink 1.2s infinite;
+}
+
+/* Category tab active */
+.cat-active {
+  background: #ff0000;
+  color: #fff;
+  box-shadow: 0 0 15px #ff000080;
+}
